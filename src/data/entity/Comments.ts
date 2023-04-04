@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Buffer } from "buffer";
 
 @Entity()
 export class Comments {
@@ -16,4 +17,11 @@ export class Comments {
     default: 'PENDING'
   })
   status: string
+
+  @Column({
+    type: "bytea",
+    default: null,
+    nullable: true
+  })
+  photo: Buffer
 }
